@@ -17,12 +17,12 @@
 		<h1 class="mt-4">Meal Finder</h1>
 		<div class="flex">
 			<form class="flex" id="submit">
-				<input type="text" id="search" placeholder="Search for meals or keyword">
-				<button class="search-btn" type="submit">
+				<input type="text" id="search" placeholder="Cari Makanan Anda Disini...">
+				<button class="search-btn " type="submit">
 					<i class="fas fa-search"></i>
 				</button>
 			</form>
-			<button class="random-btn" id="random">
+			<button class="random-btn " id="random" >
 				<i class="fas fa-random"></i>
 			</button>
 		</div>
@@ -30,6 +30,20 @@
 		</div>
 		<div id="meals" class="meals"></div>
 		<div id="single-meal"></div>
+	</div>
+	<div class="modal" tabindex="-1" role="dialog" id="modal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				
+				<div class="modal-body text-dark">
+					<p id="modal-text">Modal body text goes here.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" id="modal-btn" data-dismiss="modal">Close</button>
+					
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
