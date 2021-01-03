@@ -60,7 +60,8 @@ function searchMeal(e) {
 		search.value = '';
 
 	} else {
-		alert('tolong masukkan kata kunci');
+		// alert('tolong masukkan kata kunci');
+		showModal('block', `Tolong Masukkan Kata Kunci`);
 	}
 
 }
