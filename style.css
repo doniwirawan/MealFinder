@@ -122,13 +122,13 @@ button:hover i.fas {
 	margin-top: 10px;
 }
 
-.single-meal {
+.modal2 {
 	margin: 30px auto;
 	width: 70%;
 
 }
 
-.single-meal img {
+.modal2 img {
 	width: 300px;
 	margin: 15px;
 	border: 4px white solid;
@@ -136,25 +136,25 @@ button:hover i.fas {
 
 }
 
-.single-meal .single-meal-info {
+.modal2 .modal2-info {
 	margin: 20px;
 	padding: 10px;
 	border: 2px solid #ffff !important;
 	border-radius: 4px;
 }
 
-.single-meal p {
+.modal2 p {
 	margin: 0;
 	letter-spacing: 0.5px;
 	line-height: 1.5;
 }
 
-.single-meal ul {
+.modal2 ul {
 	padding-left: 0;
 	list-style: none;
 }
 
-.single-meal ul li {
+.modal2 ul li {
 	border:
 		1px solid #ededed;
 	border-radius: 4px;
@@ -167,6 +167,9 @@ button:hover i.fas {
 	margin: 0 5px 5px 0;
 }
 
+.modal2 {
+	display: block;
+}
 
 
 

@@ -4,8 +4,9 @@ const search = document.querySelector('#search'),
 	mealsEl = document.querySelector('#meals'),
 	resultHeading = document.querySelector('#result-heading'),
 	modal = document.querySelector('#modal'),
-	// modal2 = document.querySelector('.modal2'),
+	modalItem = document.querySelectorAll('#exampleModalLong'),
 	modalBtn = document.querySelector('#modal-btn'),
+	modalBtnItem = document.querySelectorAll('#modal-btn2'),
 	modalText = document.querySelector('#modal-text'),
 	single_mealEl = document.querySelector('#single-meal');
 
@@ -20,12 +21,21 @@ function showModal(display, text) {
 		modal.style.display = 'none';
 	})
 }
-function closeModal() {
-	modalBtn.addEventListener('click', function () {
-		modal.style.display = 'none';
-	})
-}
-closeModal();
+
+// function closeModal() {
+// 	modalBtnItem.forEach(function (btnItem) {
+// 		btnItem.addEventListener('click', function () {
+// 			modalItem.forEach(function (mItem) {
+// 				mItem.style.display = 'none';
+// 			})
+// 		})
+// 	})
+
+// 	modalBtnItem.addEventListener('click', function () {
+// 		modalItem.style.display = 'none';
+// 	})
+// }
+// closeModal();
 
 
 
@@ -112,12 +122,12 @@ function addMealtoDOM(meal) {
 
 
 	single_mealEl.innerHTML = `
-	<div class="modal" id="modal" tabindex="-1" role="dialog">
+	<div class="modal2 text-dark" id="exampleModalLong" tabindex="-1" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 		<div class="modal-header">
 		<h1 class="modal-title">${meal.strMeal}</h1>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<button type="button" class="close" data-dismiss="modal" id="modal-btn2"aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
@@ -136,7 +146,7 @@ function addMealtoDOM(meal) {
 	 		</div>
 		</div>
 		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary" id="moda-btn">Close</button>
+			<button type="button" class="btn btn-secondary" id="modal-btn2">Close</button>
 		</div>
 		</div>
 	</div>
