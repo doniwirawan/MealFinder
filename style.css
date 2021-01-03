@@ -145,8 +145,8 @@ input:focus {
 }
 
 .single-meal ul li {
-	border;
-	1px solid #ededed;
+	border:
+		1px solid #ededed;
 	border-radius: 4px;
 	background-color: #fff;
 	display: inline-block;
