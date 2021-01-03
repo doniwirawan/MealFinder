@@ -32,12 +32,12 @@ function closeModal() {
 }
 closeModal();
 
-function closeModalItem() {
-	modalBtnItem.addEventListener('click', function () {
-		modalItem.style.display = 'none';
-	})
-}
-closeModalItem();
+// function closeModalItem() {
+// 	modalBtnItem.addEventListener('click', function () {
+// 		modalItem.style.display = 'none';
+// 	})
+// }
+// closeModalItem();
 
 
 
