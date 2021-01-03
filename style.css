@@ -96,10 +96,10 @@ input[type="text"]{
 	border-radius: 2px;
 
 }
-.single-meal-info{
+.single-meal .single-meal-info{
 	margin:20px;
 	padding: 10px;
-	border: 2px #D30000 dashed;
+	border: 2px solid #ffff  !important;
 	border-radius: 4px;
 }
 .single-meal p{
