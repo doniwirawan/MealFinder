@@ -4,6 +4,7 @@ const search = document.querySelector('#search'),
 	mealsEl = document.querySelector('#meals'),
 	resultHeading = document.querySelector('#result-heading'),
 	modal = document.querySelector('#modal'),
+	// modal2 = document.querySelector('.modal2'),
 	modalBtn = document.querySelector('#modal-btn'),
 	modalText = document.querySelector('#modal-text'),
 	single_mealEl = document.querySelector('#single-meal');
@@ -19,7 +20,12 @@ function showModal(display, text) {
 		modal.style.display = 'none';
 	})
 }
-
+function closeModal() {
+	modalBtn.addEventListener('click', function () {
+		modal.style.display = 'none';
+	})
+}
+closeModal();
 
 
 
@@ -106,20 +112,34 @@ function addMealtoDOM(meal) {
 
 
 	single_mealEl.innerHTML = `
-	<div class="single-meal">
-		<h1>${meal.strMeal}</h1>
-		<img src="${meal.strMealThumb}" alt="${meal.strMeal}"/>
-		<div class"single-meal-info">
-			${meal.strCategory ? `<h3>${meal.strCategory}</h3>` : ''}
-			${meal.strArea ? `<p class="mb-3">${meal.strArea}</p>` : ''}
+	<div class="modal" id="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+		<h1 class="modal-title">${meal.strMeal}</h1>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
 		</div>
-		<div class="main">
-			<p>${meal.strInstructions}</p>
-			<h3>Ingredients :</h3>
-			<ul>
-				${ingredients.map(ing => `<li>${ing}</li>`).join('')}
-			</ul>
+		<div class="modal-body">
+			<img src="${meal.strMealThumb}" alt="${meal.strMeal}"/>
+			<div class"single-meal-info">
+				${meal.strCategory ? `<h3>${meal.strCategory}</h3>` : ''}
+				${meal.strArea ? `<p class="mb-3">${meal.strArea}</p>` : ''}
+			</div>
+			<div class="main">
+				<p>${meal.strInstructions}</p>
+				<h3>Ingredients :</h3>
+				<ul>
+					${ingredients.map(ing => `<li>${ing}</li>`).join('')}
+				</ul>
+	 		</div>
 		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" id="moda-btn">Close</button>
+		</div>
+		</div>
+	</div>
 	</div>
 	`;
 }
