@@ -4,7 +4,7 @@ const search = document.querySelector('#search'),
 	mealsEl = document.querySelector('#meals'),
 	resultHeading = document.querySelector('#result-heading'),
 	modal = document.querySelector('#modal'),
-	modalBtn = document.querySelectorAll('#modal-btn'),
+	modalBtn = document.querySelector('#modal-btn'),
 	modalText = document.querySelector('#modal-text'),
 	single_mealEl = document.querySelector('#single-meal');
 
@@ -15,8 +15,10 @@ const search = document.querySelector('#search'),
 function showModal(display, text) {
 	modal.style.display = `${display}`;
 	modalText.innerHTML = `${text}`;
+	modalBtn.addEventListener('click', function () {
+		modal.style.display = 'none';
+	})
 }
-
 
 
 
