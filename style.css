@@ -54,6 +54,15 @@ input:focus {
 	background: none;
 }
 
+button:focus {
+	outline: none;
+
+}
+
+button:hover i.fas {
+	color: #9d001d;
+}
+
 .searc-btn {
 	cursor: pointer;
 	border-left: 0;
@@ -82,6 +91,7 @@ input:focus {
 	height: 180px;
 	width: 180px;
 	text-align: center;
+
 }
 
 .meal img {

@@ -47,10 +47,10 @@ function searchMeal(e) {
 					showModal('block', `Pencarian untuk ${term} kosong, coba lagi !`);
 				} else {
 					mealsEl.innerHTML = data.meals.map(meal =>
-						`<div class="meal">
-						<img src="${meal.strMealThumb}" alt="${meal.strMeal}"/>
+						`<div class="meal rounded">
+						<img src="${meal.strMealThumb}" alt="${meal.strMeal}" class="rounded"/>
 
-						<div class="meal-info" data-mealID="${meal.idMeal}">
+						<div class="meal-info rounded" data-mealID="${meal.idMeal}">
 							<h3>${meal.strMeal}</h3>
 						</div>
 					</div>`
@@ -110,12 +110,12 @@ function addMealtoDOM(meal) {
 		<h1>${meal.strMeal}</h1>
 		<img src="${meal.strMealThumb}" alt="${meal.strMeal}"/>
 		<div class"single-meal-info">
-			${meal.strCategory ? `<p>${meal.strCategory}</p>` : ''}
-			${meal.strArea ? `<p>${meal.strArea}</p>` : ''}
+			${meal.strCategory ? `<h3>${meal.strCategory}</h3>` : ''}
+			${meal.strArea ? `<p class="mb-3">${meal.strArea}</p>` : ''}
 		</div>
 		<div class="main">
 			<p>${meal.strInstructions}</p>
-			<h2>ingredients :</h2>
+			<h3>Ingredients :</h3>
 			<ul>
 				${ingredients.map(ing => `<li>${ing}</li>`).join('')}
 			</ul>
