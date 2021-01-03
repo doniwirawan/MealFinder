@@ -43,7 +43,7 @@ function searchMeal(e) {
 				console.log(data);
 				resultHeading.innerHTML = `<h2 class='mt-4'>Hasil pencarian dari '${term}' : </h2>`;
 				if (data.meals === null) {
-
+					resultHeading.innerHTML = ``;
 					showModal('block', `Pencarian untuk ${term} kosong, coba lagi !`);
 				} else {
 					mealsEl.innerHTML = data.meals.map(meal =>
