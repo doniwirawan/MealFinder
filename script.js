@@ -3,12 +3,18 @@ const search = document.querySelector('#search'),
 	random = document.querySelector('#random'),
 	mealsEl = document.querySelector('#meals'),
 	resultHeading = document.querySelector('#result-heading'),
+
 	modal = document.querySelector('#modal'),
-	modalItem = document.querySelectorAll('#exampleModalLong'),
 	modalBtn = document.querySelector('#modal-btn'),
-	modalBtnItem = document.querySelectorAll('#modal-btn2'),
+
+	modalItem = document.querySelectorAll('.modal2'),
+	modalBtnItem = document.querySelectorAll('.modal-btn2'),
+
+
 	modalText = document.querySelector('#modal-text'),
-	single_mealEl = document.querySelector('#single-meal');
+	single_mealEl = document.querySelector('#single-meal'),
+	filter = document.querySelector('.filter'),
+	container = document.querySelector('.container');
 
 
 
@@ -17,25 +23,21 @@ const search = document.querySelector('#search'),
 function showModal(display, text) {
 	modal.style.display = `${display}`;
 	modalText.innerHTML = `${text}`;
+}
+
+function closeModal() {
 	modalBtn.addEventListener('click', function () {
 		modal.style.display = 'none';
 	})
 }
+closeModal();
 
-// function closeModal() {
-// 	modalBtnItem.forEach(function (btnItem) {
-// 		btnItem.addEventListener('click', function () {
-// 			modalItem.forEach(function (mItem) {
-// 				mItem.style.display = 'none';
-// 			})
-// 		})
-// 	})
-
-// 	modalBtnItem.addEventListener('click', function () {
-// 		modalItem.style.display = 'none';
-// 	})
-// }
-// closeModal();
+function closeModalItem() {
+	modalBtnItem.addEventListener('click', function () {
+		modalItem.style.display = 'none';
+	})
+}
+closeModalItem();
 
 
 
@@ -127,7 +129,7 @@ function addMealtoDOM(meal) {
 		<div class="modal-content">
 		<div class="modal-header">
 		<h1 class="modal-title">${meal.strMeal}</h1>
-			<button type="button" class="close" data-dismiss="modal" id="modal-btn2"aria-label="Close">
+			<button type="button" class="close"  id="modal-btn2">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
@@ -139,14 +141,14 @@ function addMealtoDOM(meal) {
 			</div>
 			<div class="main">
 				<p>${meal.strInstructions}</p>
-				<h3>Ingredients :</h3>
-				<ul>
+				<h3 class="mt-2">Ingredients :</h3>
+				<ul >
 					${ingredients.map(ing => `<li>${ing}</li>`).join('')}
 				</ul>
 	 		</div>
 		</div>
 		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary" id="modal-btn2">Close</button>
+			<button type="button" class="btn btn-secondary modal-btn2" >Close</button>
 		</div>
 		</div>
 	</div>
@@ -161,6 +163,7 @@ random.addEventListener('click', getRandomMeal);
 
 
 mealsEl.addEventListener('click', e => {
+	filter.style.display = 'block';
 	const mealInfo = e.path.find(item => {
 		if (item.classList) {
 			return item.classList.contains('meal-info');
