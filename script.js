@@ -4,9 +4,11 @@ const search = document.querySelector('#search'),
 	mealsEl = document.querySelector('#meals'),
 	resultHeading = document.querySelector('#result-heading'),
 
+	// Modal Sudah Work
 	modal = document.querySelector('#modal'),
 	modalBtn = document.querySelector('#modal-btn'),
 
+	// modal  masih belum work
 	modalItem = document.querySelectorAll('.modal2'),
 	modalBtnItem = document.querySelectorAll('.modal-btn'),
 
@@ -46,7 +48,8 @@ console.log(modalBtnItem);
 
 
 
-//seacrh meal and fetch from API
+
+//search meal and fetch from API
 function searchMeal(e) {
 	e.preventDefault();
 
@@ -85,7 +88,6 @@ function searchMeal(e) {
 		search.value = '';
 
 	} else {
-		// alert('tolong masukkan kata kunci');
 		showModal('block', `Tolong Masukkan Kata Kunci`);
 	}
 
@@ -130,33 +132,33 @@ function addMealtoDOM(meal) {
 
 	single_mealEl.innerHTML = `
 	<div class="modal2 text-dark" id="exampleModalLong" tabindex="-1" role="dialog">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-		<div class="modal-header">
-		<h1 class="modal-title">${meal.strMeal}</h1>
-			<button type="button" class="close modal-btn"  id="modal-btn">
-			<span aria-hidden="true">&times;</span>
-			</button>
-		</div>
-		<div class="modal-body">
-			<img src="${meal.strMealThumb}" alt="${meal.strMeal}"/>
-			<div class"single-meal-info">
-				${meal.strCategory ? `<h3>${meal.strCategory}</h3>` : ''}
-				${meal.strArea ? `<p class="mb-3">${meal.strArea}</p>` : ''}
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title">${meal.strMeal}</h1>
+					<button type="button" class="close modal-btn"  id="modal-btn">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<img src="${meal.strMealThumb}" alt="${meal.strMeal}"/>
+					<div class"single-meal-info">
+						${meal.strCategory ? `<h3>${meal.strCategory}</h3>` : ''}
+						${meal.strArea ? `<p class="mb-3">${meal.strArea}</p>` : ''}
+					</div>
+					<div class="main">
+						<p>${meal.strInstructions}</p>
+						<h3 class="mt-2">Ingredients :</h3>
+						<ul >
+							${ingredients.map(ing => `<li>${ing}</li>`).join('')}
+						</ul>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary modal-btn" >Close</button>
+				</div>
 			</div>
-			<div class="main">
-				<p>${meal.strInstructions}</p>
-				<h3 class="mt-2">Ingredients :</h3>
-				<ul >
-					${ingredients.map(ing => `<li>${ing}</li>`).join('')}
-				</ul>
-	 		</div>
 		</div>
-		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary modal-btn" >Close</button>
-		</div>
-		</div>
-	</div>
 	</div>
 	`;
 }
