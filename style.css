@@ -132,6 +132,7 @@ button:hover i.fas {
 	margin-top: 10px;
 }
 
+
 .modal2 {
 	position: absolute;
 	left: 50%;
@@ -188,6 +189,9 @@ button:hover i.fas {
 	display: block;
 }
 
+.modal2.none {
+	display: none;
+}
 
 
 

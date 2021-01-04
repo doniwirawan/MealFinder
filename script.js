@@ -9,7 +9,6 @@ const search = document.querySelector('#search'),
 	modalBtn = document.querySelector('#modal-btn'),
 
 	// modal  masih belum work
-	modalItem = document.querySelectorAll('.modal2'),
 	modalBtnItem = document.querySelectorAll('.modal-btn'),
 
 
@@ -22,27 +21,6 @@ const search = document.querySelector('#search'),
 
 
 
-function showModal(display, text) {
-	modal.style.display = `${display}`;
-	modalText.innerHTML = `${text}`;
-}
-
-function closeModal() {
-	modalBtn.addEventListener('click', function () {
-		modal.style.display = 'none';
-	})
-}
-closeModal();
-
-
-function closeModalItem() {
-	modalBtnItem.forEach(function (el) {
-		el.addEventListener('click', function (e) {
-			e.target.parentNode.style.display = 'none';
-		})
-	})
-}
-closeModalItem();
 
 console.log(modalBtnItem);
 
@@ -163,6 +141,29 @@ function addMealtoDOM(meal) {
 	`;
 }
 
+
+function showModal(display, text) {
+	modal.style.display = `${display}`;
+	modalText.innerHTML = `${text}`;
+}
+
+function closeModal() {
+	modalBtn.addEventListener('click', function () {
+		modal.style.display = 'none';
+	})
+}
+closeModal();
+
+
+function closeModalItem() {
+	modalBtnItem.forEach(function (el) {
+		el.addEventListener('click', function () {
+			single_mealEl.style.display = 'none';
+		})
+	})
+}
+
+
 //event listener
 submit.addEventListener('submit', searchMeal);
 
@@ -171,6 +172,8 @@ random.addEventListener('click', getRandomMeal);
 
 mealsEl.addEventListener('click', e => {
 	filter.style.display = 'block';
+	closeModalItem();
+
 	const mealInfo = e.path.find(item => {
 		if (item.classList) {
 			return item.classList.contains('meal-info');
