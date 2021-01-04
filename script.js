@@ -8,7 +8,7 @@ const search = document.querySelector('#search'),
 	modalBtn = document.querySelector('#modal-btn'),
 
 	modalItem = document.querySelectorAll('.modal2'),
-	modalBtnItem = document.querySelectorAll('.modal-btn2'),
+	modalBtnItem = document.querySelectorAll('.modal-btn'),
 
 
 	modalText = document.querySelector('#modal-text'),
@@ -32,12 +32,17 @@ function closeModal() {
 }
 closeModal();
 
-// function closeModalItem() {
-// 	modalBtnItem.addEventListener('click', function () {
-// 		modalItem.style.display = 'none';
-// 	})
-// }
-// closeModalItem();
+
+function closeModalItem() {
+	modalBtnItem.forEach(function (el) {
+		el.addEventListener('click', function (e) {
+			e.target.parentNode.style.display = 'none';
+		})
+	})
+}
+closeModalItem();
+
+console.log(modalBtnItem);
 
 
 
@@ -129,7 +134,7 @@ function addMealtoDOM(meal) {
 		<div class="modal-content">
 		<div class="modal-header">
 		<h1 class="modal-title">${meal.strMeal}</h1>
-			<button type="button" class="close"  id="modal-btn2">
+			<button type="button" class="close modal-btn"  id="modal-btn">
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
@@ -148,7 +153,7 @@ function addMealtoDOM(meal) {
 	 		</div>
 		</div>
 		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary modal-btn2" >Close</button>
+			<button type="button" class="btn btn-secondary modal-btn" >Close</button>
 		</div>
 		</div>
 	</div>
