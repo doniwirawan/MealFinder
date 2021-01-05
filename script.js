@@ -172,7 +172,6 @@ random.addEventListener('click', getRandomMeal);
 
 mealsEl.addEventListener('click', e => {
 	filter.style.display = 'block';
-	closeModalItem();
 
 	const mealInfo = e.path.find(item => {
 		if (item.classList) {
@@ -184,6 +183,8 @@ mealsEl.addEventListener('click', e => {
 	if (mealInfo) {
 		const mealID = mealInfo.getAttribute('data-mealid');
 		getMealById(mealID)
+		closeModalItem();
+
 	}
 
 });
