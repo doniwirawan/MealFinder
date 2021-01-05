@@ -133,7 +133,7 @@ function addMealtoDOM(meal) {
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary modal-btn" >Close</button>
+					<button type="button" class="btn btn-secondary modal-btn" onclick="closeModalItem(e)">Close</button>
 				</div>
 			</div>
 		</div>
@@ -155,12 +155,8 @@ function closeModal() {
 closeModal();
 
 
-function closeModalItem() {
-	modalBtnItem.forEach(function (el) {
-		el.addEventListener('click', function () {
-			single_mealEl.style.display = 'none';
-		})
-	})
+function closeModalItem(e) {
+	console.log(e);
 }
 
 
@@ -183,8 +179,7 @@ mealsEl.addEventListener('click', e => {
 	if (mealInfo) {
 		const mealID = mealInfo.getAttribute('data-mealid');
 		getMealById(mealID)
-		closeModalItem();
-
+		// closeModalItem();
 	}
 
 });
