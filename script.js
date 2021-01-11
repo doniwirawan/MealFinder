@@ -155,6 +155,8 @@ function showModal(display, text) {
 function closeModal() {
 	modalBtn.addEventListener('click', function () {
 		modal.style.display = 'none';
+		filter.style.display = 'none';
+
 	})
 }
 closeModal();
