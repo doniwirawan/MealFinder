@@ -11,6 +11,8 @@ body {
 }
 
 .modal {
+	position: fixed;
+	top: 20%;
 	display: none;
 }
 
@@ -93,6 +95,7 @@ button:hover i.fas {
 	grid-template-columns: repeat(4, 1fr);
 	grid-gap: 20px;
 	margin-top: 20px;
+	margin-bottom: 30px;
 }
 
 .meal {
@@ -186,12 +189,18 @@ button:hover i.fas {
 }
 
 .modal2 {
+	max-width: 100%;
+	/* overflow: hidden; */
 	position: fixed;
 	display: block;
 }
 
 .modal2.none {
 	display: none;
+}
+
+.modal-dialog {
+	overflow: auto;
 }
 
 

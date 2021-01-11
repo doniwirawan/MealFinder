@@ -110,7 +110,7 @@ function addMealtoDOM(meal) {
 
 	single_mealEl.innerHTML = `
 	<div class="modal2 text-dark" id="exampleModalLong" tabindex="-1" role="dialog">
-		<div class="modal-dialog" role="document">
+		<div class="modal-dialog" role="document" >
 			<div class="modal-content">
 				<div class="modal-header">
 					<h1 class="modal-title">${meal.strMeal}</h1>
@@ -143,8 +143,13 @@ function addMealtoDOM(meal) {
 
 
 function showModal(display, text) {
+	filter.style.display = 'block';
 	modal.style.display = `${display}`;
 	modalText.innerHTML = `${text}`;
+	setTimeout(() => {
+		filter.style.display = 'none';
+		modal.style.display = 'none';
+	}, 1000);
 }
 
 function closeModal() {
