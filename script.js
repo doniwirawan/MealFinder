@@ -149,7 +149,7 @@ function showModal(display, text) {
 	setTimeout(() => {
 		filter.style.display = 'none';
 		modal.style.display = 'none';
-	}, 1000);
+	}, 1400);
 }
 
 function closeModal() {
