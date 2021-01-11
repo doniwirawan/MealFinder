@@ -45,7 +45,7 @@ function searchMeal(e) {
 			.then(res => res.json())
 			.then(data => {
 				console.log(data);
-				resultHeading.innerHTML = `<h2 class='mt-4'>Hasil pencarian dari '${term}' : </h2>`;
+				resultHeading.innerHTML = `<h4 class='mt-4'>Hasil pencarian dari '${term}' : </h4>`;
 				if (data.meals === null) {
 					resultHeading.innerHTML = ``;
 					showModal('block', `Pencarian untuk ${term} kosong, coba lagi !`);
