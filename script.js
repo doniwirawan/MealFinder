@@ -115,7 +115,7 @@ function addMealtoDOM(meal) {
 				<div class="modal-header">
 					<h1 class="modal-title">${meal.strMeal}</h1>
 					<button type="button" class="close modal-btn"  id="modal-btn">
-					<span aria-hidden="true">&times;</span>
+					<span aria-hidden="true" onclick="closeModalItem()">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
@@ -133,7 +133,7 @@ function addMealtoDOM(meal) {
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary modal-btn" onclick="closeModalItem(e)">Close</button>
+					<button type="button" class="btn btn-secondary modal-btn" onclick="closeModalItem()">Close</button>
 				</div>
 			</div>
 		</div>
@@ -155,8 +155,11 @@ function closeModal() {
 closeModal();
 
 
-function closeModalItem(e) {
-	console.log(e);
+function closeModalItem() {
+	// console.log('clicked');
+	document.querySelector('#exampleModalLong').style.display = 'none';
+	filter.style.display = 'none';
+
 }
 
 
