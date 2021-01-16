@@ -1,7 +1,6 @@
 const search = document.querySelector('#search'),
 	submit = document.querySelector('#submit'),
 	random = document.querySelector('#random'),
-	// mealsEl = document.querySelector('#meals'),
 	drinksEl = document.querySelector('#drinks'),
 	resultHeading = document.querySelector('#result-heading'),
 
@@ -14,7 +13,6 @@ const search = document.querySelector('#search'),
 
 
 	modalText = document.querySelector('#modal-text'),
-	// single_mealEl = document.querySelector('#single-meal'),
 	single_drinkEl = document.querySelector('#single-drink'),
 	filter = document.querySelector('.filter'),
 	container = document.querySelector('.container');
