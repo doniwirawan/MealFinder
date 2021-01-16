@@ -1,7 +1,8 @@
 const search = document.querySelector('#search'),
 	submit = document.querySelector('#submit'),
 	random = document.querySelector('#random'),
-	mealsEl = document.querySelector('#meals'),
+	// mealsEl = document.querySelector('#meals'),
+	drinksEl = document.querySelector('#drinks'),
 	resultHeading = document.querySelector('#result-heading'),
 
 	// Modal Sudah Work
@@ -13,7 +14,8 @@ const search = document.querySelector('#search'),
 
 
 	modalText = document.querySelector('#modal-text'),
-	single_mealEl = document.querySelector('#single-meal'),
+	// single_mealEl = document.querySelector('#single-meal'),
+	single_drinkEl = document.querySelector('#single-drink'),
 	filter = document.querySelector('.filter'),
 	container = document.querySelector('.container');
 
@@ -28,11 +30,11 @@ console.log(modalBtnItem);
 
 
 //search meal and fetch from API
-function searchMeal(e) {
+function searchDrink(e) {
 	e.preventDefault();
 
 	//clear single meal
-	single_mealEl.innerHTML = '';
+	single_drinkEl.innerHTML = '';
 
 	//term
 	const term = search.value;
@@ -50,11 +52,11 @@ function searchMeal(e) {
 					resultHeading.innerHTML = ``;
 					showModal('block', `Pencarian untuk ${term} kosong, coba lagi !`);
 				} else {
-					mealsEl.innerHTML = data.drinks.map(drink =>
-						`<div class="meal rounded">
+					drinksEl.innerHTML = data.drinks.map(drink =>
+						`<div class="drink rounded">
 						<img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" class="rounded"/>
 
-						<div class="meal-info rounded" data-mealID="${drink.idDrink}">
+						<div class="drink-info rounded" data-drinkID="${drink.idDrink}">
 							<h3>${drink.strDrink}</h3>
 						</div>
 					</div>`
@@ -72,62 +74,62 @@ function searchMeal(e) {
 }
 
 //fetch meal by ID function
-function getMealById(mealID) {
-	fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${mealID}`)
+function getDrinkById(drinkID) {
+	fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkID}`)
 		.then(res => res.json())
 		.then(data => {
-			const meal = data.drinks[0];
-			addMealtoDOM(meal);
+			const drink = data.drinks[0];
+			addDrinktoDOM(drink);
 		})
 }
 
 //fetch random meal
-function getRandomMeal() {
+function getRandomDrink() {
 	//clear meals and heading
-	mealsEl.innerHTML = '';
+	drinksEl.innerHTML = '';
 	resultHeading.innerHTML = '';
 
 	fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
 		.then(res => res.json())
 		.then(data => {
-			const meal = data.drinks[0];
-			addMealtoDOM(meal);
+			const drink = data.drinks[0];
+			addDrinktoDOM(drink);
 		})
 }
 
 
 //add meal to DOM
-function addMealtoDOM(meal) {
+function addDrinktoDOM(drink) {
 	const ingredients = [];
 	for (let i = 1; i <= 20; i++) {
-		if (meal[`strIngredient${i}`]) {
-			ingredients.push(`${meal[`strIngredient${i}`]} - ${meal[`strMeasure${i}`]}`);
+		if (drink[`strIngredient${i}`]) {
+			ingredients.push(`${drink[`strIngredient${i}`]} - ${drink[`strMeasure${i}`]}`);
 		} else {
 			break;
 		}
 	}
 
 
-	single_mealEl.innerHTML = `
+	single_drinkEl.innerHTML = `
 	<div class="modal2 text-dark" id="exampleModalLong" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document" >
 			<div class="modal-content">
 				<div class="modal-header">
-					<h1 class="modal-title">${meal.strDrink}</h1>
+					<h1 class="modal-title">${drink.strDrink}</h1>
 					<button type="button" class="close modal-btn"  id="modal-btn">
 					<span aria-hidden="true" onclick="closeModalItem()">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
-					<img src="${meal.strDrinkThumb}" alt="${meal.strDrink}"/>
-					<div class"single-meal-info">
-						${meal.strCategory ? `<h3>${meal.strCategory}</h3>` : ''}
-						${meal.strIBA ? `<h5>${meal.strIBA}</h5>` : ''}
-						${meal.strAlcoholic ? `<h5>${meal.strAlcoholic}</h5>` : ''}
-						${meal.strArea ? `<p class="mb-3">${meal.strArea}</p>` : ''}
+					<img src="${drink.strDrinkThumb}" alt="${drink.strDrink}"/>
+					<div class"single-drink-info">
+						${drink.strCategory ? `<h3>${drink.strCategory}</h3>` : ''}
+						${drink.strIBA ? `<h5>${drink.strIBA}</h5>` : ''}
+						${drink.strAlcoholic ? `<h5>${drink.strAlcoholic}</h5>` : ''}
+						${drink.strArea ? `<p class="mb-3">${drink.strArea}</p>` : ''}
 					</div>
 					<div class="main">
-						<p>${meal.strInstructions}</p>
+						<p>${drink.strInstructions}</p>
 						<h3 class="mt-2">Ingredients :</h3>
 						<ul >
 							${ingredients.map(ing => `<li>${ing}</li>`).join('')}
@@ -173,24 +175,24 @@ function closeModalItem() {
 
 
 //event listener
-submit.addEventListener('submit', searchMeal);
+submit.addEventListener('submit', searchDrink);
 
-random.addEventListener('click', getRandomMeal);
+random.addEventListener('click', getRandomDrink);
 
 
-mealsEl.addEventListener('click', e => {
+drinksEl.addEventListener('click', e => {
 	filter.style.display = 'block';
 
-	const mealInfo = e.path.find(item => {
+	const drinkInfo = e.path.find(item => {
 		if (item.classList) {
-			return item.classList.contains('meal-info');
+			return item.classList.contains('drink-info');
 		} else {
 			return false;
 		}
 	});
-	if (mealInfo) {
-		const mealID = mealInfo.getAttribute('data-mealid');
-		getMealById(mealID)
+	if (drinkInfo) {
+		const drinkID = drinkInfo.getAttribute('data-drinkid');
+		getDrinkById(drinkID)
 		// closeModalItem();
 	}
 

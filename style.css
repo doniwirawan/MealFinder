@@ -108,7 +108,7 @@ button:hover i.fas {
 
 }
 
-.meals {
+.drinks {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-gap: 20px;
@@ -116,7 +116,7 @@ button:hover i.fas {
 	margin-bottom: 30px;
 }
 
-.meal {
+.drink {
 	cursor: pointer;
 	position: relative;
 	height: 180px;
@@ -125,13 +125,13 @@ button:hover i.fas {
 
 }
 
-.meal img {
+.drink img {
 	width: 100%;
 	height: 100%;
 	border: 4px solid #fff;
 }
 
-.meal-info {
+.drink-info {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -145,7 +145,7 @@ button:hover i.fas {
 	opacity: 0;
 }
 
-.meal:hover .meal-info {
+.drink:hover .drink-info {
 	opacity: 1;
 }
 
@@ -225,18 +225,18 @@ button:hover i.fas {
 
 
 @media (max-width:800px) {
-	.meals {
+	.drinks {
 		grid-template-columns: repeat(3, 1fr);
 	}
 
 }
 
 @media (max-width:700px) {
-	.meals {
+	.drinks {
 		grid-template-columns: repeat(2, 1fr);
 	}
 
-	.meal {
+	.drink {
 		height: 200px;
 		width: 200px;
 	}
@@ -249,11 +249,11 @@ button:hover i.fas {
 		width: 100%;
 	}
 
-	.meals {
+	.drinks {
 		grid-template-columns: 1fr;
 	}
 
-	.meal {
+	.drink {
 		height: 300px;
 		width: 300px;
 	}
