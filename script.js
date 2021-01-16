@@ -41,21 +41,21 @@ function searchMeal(e) {
 
 	//check for empty
 	if (term.trim()) {
-		fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`)
+		fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${term}`)
 			.then(res => res.json())
 			.then(data => {
 				console.log(data);
 				resultHeading.innerHTML = `<h4 class='mt-4'>Hasil pencarian dari '${term}' : </h4>`;
-				if (data.meals === null) {
+				if (data.drinks === null) {
 					resultHeading.innerHTML = ``;
 					showModal('block', `Pencarian untuk ${term} kosong, coba lagi !`);
 				} else {
-					mealsEl.innerHTML = data.meals.map(meal =>
+					mealsEl.innerHTML = data.drinks.map(drink =>
 						`<div class="meal rounded">
-						<img src="${meal.strMealThumb}" alt="${meal.strMeal}" class="rounded"/>
+						<img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" class="rounded"/>
 
-						<div class="meal-info rounded" data-mealID="${meal.idMeal}">
-							<h3>${meal.strMeal}</h3>
+						<div class="meal-info rounded" data-mealID="${drink.idDrink}">
+							<h3>${drink.strDrink}</h3>
 						</div>
 					</div>`
 					)
@@ -73,10 +73,10 @@ function searchMeal(e) {
 
 //fetch meal by ID function
 function getMealById(mealID) {
-	fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`)
+	fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${mealID}`)
 		.then(res => res.json())
 		.then(data => {
-			const meal = data.meals[0];
+			const meal = data.drinks[0];
 			addMealtoDOM(meal);
 		})
 }
@@ -87,10 +87,10 @@ function getRandomMeal() {
 	mealsEl.innerHTML = '';
 	resultHeading.innerHTML = '';
 
-	fetch(`https://www.themealdb.com/api/json/v1/1/random.php`)
+	fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
 		.then(res => res.json())
 		.then(data => {
-			const meal = data.meals[0];
+			const meal = data.drinks[0];
 			addMealtoDOM(meal);
 		})
 }
@@ -113,13 +113,13 @@ function addMealtoDOM(meal) {
 		<div class="modal-dialog" role="document" >
 			<div class="modal-content">
 				<div class="modal-header">
-					<h1 class="modal-title">${meal.strMeal}</h1>
+					<h1 class="modal-title">${meal.strDrink}</h1>
 					<button type="button" class="close modal-btn"  id="modal-btn">
 					<span aria-hidden="true" onclick="closeModalItem()">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
-					<img src="${meal.strMealThumb}" alt="${meal.strMeal}"/>
+					<img src="${meal.strDrinkThumb}" alt="${meal.strDrink}"/>
 					<div class"single-meal-info">
 						${meal.strCategory ? `<h3>${meal.strCategory}</h3>` : ''}
 						${meal.strArea ? `<p class="mb-3">${meal.strArea}</p>` : ''}
