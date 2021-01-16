@@ -122,6 +122,8 @@ function addMealtoDOM(meal) {
 					<img src="${meal.strDrinkThumb}" alt="${meal.strDrink}"/>
 					<div class"single-meal-info">
 						${meal.strCategory ? `<h3>${meal.strCategory}</h3>` : ''}
+						${meal.strIBA ? `<h5>${meal.strIBA}</h5>` : ''}
+						${meal.strAlcoholic ? `<h5>${meal.strAlcoholic}</h5>` : ''}
 						${meal.strArea ? `<p class="mb-3">${meal.strArea}</p>` : ''}
 					</div>
 					<div class="main">
